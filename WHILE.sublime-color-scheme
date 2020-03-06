@@ -1,0 +1,80 @@
+/* Colours for syntax of the extended WHILE language,
+a simple imperative language used in Limits of Computation.
+Author: Toby Dennison
+Version: v2.0, 06/03/2020 */
+
+{
+	"variables": {
+		// Define variables here
+	},
+	"globals": {
+		"foreground": "#fff",
+		"background": "#222",
+		"selection": "#444",
+		"caret": "#fff"
+	},
+	"rules": [
+		{
+			"scope": "expression",
+			"foreground": "#e22800"
+		},
+		{
+			"scope": "statement",
+			"foreground": "#0085c8",
+		},
+		{
+			"scope": "program-keyword",
+			"foreground": "#18a553",
+		},
+		{
+			"scope": "assignment",
+			"foreground": "#ffd700"
+		},
+		{
+			"scope": "comment.line.double-slash.while",
+			"foreground": "#999"
+		},
+		{
+			"scope": "comment.block",
+			"foreground": "#999"
+		},
+
+
+		{
+			"scope": "constant",
+			"foreground": "#af00a0",
+		},
+		{
+			"scope": "boolean",
+			"foreground": "#c8c800"
+		},
+		{
+			"scope": "equality",
+			"foreground": "#ffd700"
+		},
+		{
+			"scope": "macro",
+			"foreground": "#fb7e00"
+		},
+		{
+			"scope": "literal",
+			"foreground": "#ff69b4",
+		},
+		{
+			"scope": "nil_tree_literal",
+			"foreground": "#ff69b4"
+		},
+		{
+			"scope": "switch_statement",
+			"foreground": "#57ae00"
+		},
+		{
+			"scope": "atom",
+			"foreground": "#00a6c8"
+		},
+		{
+			"scope": "assignment_atom",
+			"foreground": "#00a6c8"
+		}
+	]
+}

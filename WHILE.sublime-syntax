@@ -1,0 +1,113 @@
+%YAML 1.2
+---
+# Regexes for matching syntax of the extended WHILE language,
+# a simple imperative language used in Limits of Computation.
+# Author: Toby Dennison
+# Version: v2.0, 06/03/2020
+
+# See http://www.sublimetext.com/docs/3/syntax.html
+name: WHILE Language (Limits)
+file_extensions:
+  - while
+scope: source.while
+
+contexts:
+  # The prototype context is prepended to all contexts but those setting
+  # meta_include_prototype: false.
+  prototype:
+    - include: comments
+
+  main:
+    # The main context is the initial starting point of our syntax.
+    # Include other contexts from here (or specify them directly).
+
+    - include: expressions
+    - include: statements
+    - include: program-keywords
+    - include: assignments
+    - include: multiline-comments-while
+
+    - include: numbers
+    - include: booleans
+    - include: equalities
+    - include: macros
+    - include: literals
+    - include: nil_tree_literals
+    - include: switch_statements
+    - include: atoms
+    - include: assignment_atoms
+
+  expressions:
+    - match: '\b(cons|hd|tl)\b'
+      scope: expression.control.while
+
+  statements:
+    - match: '\b(if|else|while|)\b'
+      scope: statement.control.while
+
+  program-keywords:
+    # Keywords are read and write.
+    # Note that blackslashes don't need to be escaped within single quoted
+    # strings in YAML. When using single quoted strings, only single quotes
+    # need to be escaped: this is done by using two single quotes next to each
+    # other.
+    - match: '\b(read|write)\b'
+      scope: program-keyword.control.while
+
+  assignments:
+    - match: ':='
+      scope: assignment.control.while
+
+  comments:
+    # Comments begin with a '//' and finish at the end of the line.
+    - match: '//'
+      scope: punctuation.definition.comment.while
+      push:
+        # This is an anonymous context push for brevity.
+        - meta_scope: comment.line.double-slash.while
+        - match: $\n?
+          pop: true
+
+  multiline-comments-while:
+    - match: \(\*
+      push:
+        - meta_scope: comment.block
+        - match: \*\)
+          pop: true
+
+
+  numbers:
+    - match: '\b(-)?[0-9.]+\b'
+      scope: constant.numeric.while
+
+  booleans:
+    - match: '\b(true|false)\b'
+      scope: boolean.control.while
+
+  equalities:
+    - match: '='
+      scope: equality.control.while
+
+  macros:
+    - match: '<\w*>'
+      scope: macro.control.while
+
+  literals:
+    - match: '\<(.*?)\>(\>)*'
+      scope: literal.control.while
+
+  nil_tree_literals:
+    - match: '\b(nil)\b'
+      scope: nil_tree_literal.control.while
+
+  switch_statements:
+    - match: '\b(switch|case|default)\b'
+      scope: switch_statement.control.while
+
+  atoms:
+    - match: '[@]\w*\b'
+      scope: atom.control.while
+
+  assignment_atoms:
+    - match: '(@:=)'
+      scope: assignment_atom.control.while
