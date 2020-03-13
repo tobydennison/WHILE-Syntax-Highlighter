@@ -10,7 +10,7 @@ If you spot any errors, please let us know.
 
 **Tip for Speedy WHILE Programming:** Download Sublime packages [Terminus](https://packagecontrol.io/packages/Terminus "Get Terminus") and [Origami](https://packagecontrol.io/packages/Origami "Get Origami") to open a terminal window *inside of* Sublime and position it where you like, respectively.
 
-**Note:** The highlighter was not made for **Visual Studio Code** as it involves a bit more work than Sublime. If anyone wants to have a go at making a VS Code version, please let Bernhard know.
+**Note:** There is an equivalent [extension for VS Code](https://github.com/davidpomerenke/while-syntax-vscode), using the same colours.
 
 # Preview
 <img src="images/WHILE-Highlighting-Preview.png" alt="Syntax highlighter preview." height="60%" width="60%">
